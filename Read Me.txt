@@ -1,0 +1,6 @@
+After linking to the table-to-csv.js file from your page with the SlickGrid table on it, you need to call the
+function in order to start the export.
+
+The call for this is:
+
+$("id of SlickGrid table goes here").table2CSV();
