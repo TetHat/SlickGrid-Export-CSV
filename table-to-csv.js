@@ -1,4 +1,5 @@
 // JavaScript Document
+// http://www.kunalbabre.com/projects/table2CSV.php
 jQuery.fn.table2CSV = function(options) {
     var options = jQuery.extend({
         separator: ',',
@@ -27,16 +28,18 @@ jQuery.fn.table2CSV = function(options) {
 		var tmpColumns = grid.getColumns();
 		for (var key in tmpColumns) {    
 			var obj = tmpColumns[key];  
-			// This goes through each property of the columns (id, name, width, etc.)
+			// This goes through each property of the columns (id, name, width, etc.)  
 			for (var prop in obj) {       
+				//alert(prop + " = " + obj[prop]);
 				// This is choosing the Name property from each column. obj[prop] returns the value of that property.
 				if (prop == "name") {
 					// This is what places the returned values into the headerRow array.
 					headerRow[headerRow.length] = obj[prop];
 				}
-				// This is choosing the ID property from each column. Then assigning them the value of what column it will be in.
 				if (prop == "id") {
+					// This is choosing the ID property from each column. Then assigning them the value of what column it will be in.
 					numArray[obj[prop]] = count++;
+					//alert(numArray);	
 				}
 			}
 			
@@ -77,7 +80,6 @@ jQuery.fn.table2CSV = function(options) {
         });
         row2CSV(tmpRow);
     });*/
-	
     if (options.delivery == 'popup') {
         var mydata = csvData.join('\n');
         return popup(mydata);
